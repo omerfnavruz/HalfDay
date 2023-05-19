@@ -1,0 +1,40 @@
+var event1 = {
+    Name: "Pineapple",
+    MinDay: 2,
+    MaxDay: 4,
+    RequiresLeave: true,
+    RequiresStay: false,
+    SuccessRate: 70,
+    FailRate: 30,
+    NothingRate: 100,
+    BadNewsRate: 0,
+    QuestionText: "After you regained your consciousness, you realize a pineapple on your table. Would you like to eat it?",
+    SuccessText: "Your health level has increased by 20!",
+    FailText: "The pineapple made you allergic! Heaalth Level -10.",
+    BadNewsText: null,
+    NothingText: "You threw away the pineapple.",
+    SuccessEffect: function(){ healthLevel += 10; },
+    FailEffect: function () {healthLevel -= 20; },
+    DidHappen: false
+}
+
+var event2 = {
+    Name: "Wake up?",
+    MinDay: 5,
+    MaxDay: 8,
+    RequiresLeave: false,
+    RequiresStay: true,
+    SuccessRate: 60,
+    FailRate: 40,
+    NothingRate: 40,
+    BadNewsRate: 60,
+    QuestionText: "While you are sleeping, you heard a noise. Will you wake up?",
+    SuccessText: "You woke up and stopped the hydrochloric acid leaking through the glass. Phew! That was close.",
+    FailText: "You woke up, looked around and detected no problem. However, you couldn't sleep back.",
+    NothingText: "You continued sleeping. Apparently, there is no problem at all.",
+    BadNewsText: "You ignore the noise and continue sleeping, one bottle of HCl has leaked through the glass during night. Chemicals -1.",
+    SuccessEffect: function(){ },
+    FailEffect: function () {sleepiness += 1;},
+    BadNewsEffect: function(){if(chemicalnum > 0){chemicalnum -= 1;}},
+    DidHappen: false
+}
